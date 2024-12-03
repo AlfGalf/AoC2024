@@ -22,7 +22,7 @@ fn main() {
 
     let res = pairs.iter().filter(|l| check(&l)).count();
 
-    println!("{res}");
+    println!("P1: {res}");
 
     let res2 = &pairs
         .iter()
@@ -41,5 +41,5 @@ fn main() {
         })
         .count();
 
-    println!("{res2}");
+    println!("P2: {res2}");
 }

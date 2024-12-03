@@ -20,7 +20,7 @@ fn main() {
     arrays.1.sort_unstable();
 
     println!(
-        "{}",
+        "P1: {}",
         arrays
             .0
             .iter()
@@ -46,5 +46,5 @@ fn main() {
         .map(|(k, f)| k * f * arrays.1.get(&k).unwrap_or(&0))
         .sum();
 
-    println!("{}", ans);
+    println!("P2: {}", ans);
 }
