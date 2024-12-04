@@ -65,9 +65,13 @@ fn main() {
 
             let (nx, ny) = (p.0 + dx, p.1 + dy);
 
-            if nx < 0 || nx >= width || ny < 0 || ny >= height { return false }
+            if nx < 0 || nx >= width || ny < 0 || ny >= height {
+                return false;
+            }
 
-            if input[nx as usize][ny as usize] != c { return false }
+            if input[nx as usize][ny as usize] != c {
+                return false;
+            }
         }
         true
     };
