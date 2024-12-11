@@ -1,5 +1,6 @@
 use regex::Regex;
 use std::collections::HashMap;
+use itertools::Itertools;
 
 fn main() {
     let input = include_str!("../../inputs/day5.txt");
@@ -29,6 +30,7 @@ fn main() {
 
     let is_sorted = |seq: &Vec<usize>| -> bool {
         for (i, n) in seq.iter().enumerate() {
+
             if let Some(m) = rules.get(&n) {
                 for m in m {
                     if let Some(p) = seq.iter().position(|x| x == m) {
