@@ -12,13 +12,15 @@ fn main() {
         .map(|c| {
             (
                 DMat2::from_cols_array(&[
-                c.name("ax").unwrap().as_str().parse().unwrap(),
-                c.name("ay").unwrap().as_str().parse().unwrap(),
-                c.name("bx").unwrap().as_str().parse().unwrap(),
-                c.name("by").unwrap().as_str().parse().unwrap()]),
+                    c.name("ax").unwrap().as_str().parse().unwrap(),
+                    c.name("ay").unwrap().as_str().parse().unwrap(),
+                    c.name("bx").unwrap().as_str().parse().unwrap(),
+                    c.name("by").unwrap().as_str().parse().unwrap(),
+                ]),
                 DVec2::new(
-                c.name("px").unwrap().as_str().parse().unwrap(),
-                c.name("py").unwrap().as_str().parse().unwrap())
+                    c.name("px").unwrap().as_str().parse().unwrap(),
+                    c.name("py").unwrap().as_str().parse().unwrap(),
+                ),
             )
         })
         .collect();
@@ -32,7 +34,7 @@ fn main() {
          */
         let res = input.into_iter().filter_map(|(m, v)| {
             if m.determinant() == 0.0 {
-                return None
+                return None;
             }
             let mi = m.inverse();
 
@@ -50,7 +52,7 @@ fn main() {
                 return None;
             }
             let b = b.round().to_usize().unwrap();
-            Some((a,b))
+            Some((a, b))
         });
 
         let res: usize = res.map(|(a, b)| 3 * a + b).sum();
@@ -60,6 +62,13 @@ fn main() {
 
     println!("P1: {}", calc(input.clone()));
 
-    println!("P2: {}", calc(input.into_iter().map(|(m, v)| (m, v + DVec2::splat(10000000000000.0))).collect()));
-
+    println!(
+        "P2: {}",
+        calc(
+            input
+                .into_iter()
+                .map(|(m, v)| (m, v + DVec2::splat(10000000000000.0)))
+                .collect()
+        )
+    );
 }
